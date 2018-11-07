@@ -1,0 +1,55 @@
+from random import *
+
+ROCK = "r"
+PAPER = "p"
+SCISSORS = "s"
+
+def makeComputerMove():
+  randomNumber = randint(0,2)
+  move = ROCK
+  if (randomNumber == 1):
+    move = PAPER
+  elif (randomNumber == 2):
+    move = SCISSORS
+  return move
+
+def isPlayerWin(playerMove,computerMove):
+  isWin = False
+  if ((playerMove == ROCK) and (computerMove == SCISSORS)):
+    isWin = True
+  elif ((playerMove == PAPER) and (computerMove == ROCK)):
+    isWin = True
+  elif ((playerMove == SCISSORS) and (computerMove == PAPER)):
+    isWin = True
+  return isWin
+
+def isComputerWin(playerMove,computerMove):
+  isWin = False
+  if ((computerMove == ROCK) and (playerMove == SCISSORS)):
+    isWin = True
+  elif ((computerMove == PAPER) and (playerMove == ROCK)):
+    isWin = True
+  elif ((computerMove == SCISSORS) and (playerMove == PAPER)):
+    isWin = True
+  return isWin
+  
+while True:    
+  print("Move Choices:") 
+  print("  r for rock")
+  print("  p for paper")
+  print("  s for scissors")
+  print(" end to end the game")
+  playerMove = input(Enter your move: ")
+  if (playerMove == "end"):
+    break
+  playerMove = makeComputerMove()
+  print("Player Move = ", playerMove)
+  print("Computer Move = ", computerMove)
+  if (isPlayerWin(playerMove,computerMove) != True) :
+     print ("You Win!!!")
+  elif (isComputerWin(playerMove,computerMove) == True):
+    print ("Sorry... You Lose.")
+  else: 
+    print("No Winner (strange)")
+  print(" ")
+  
